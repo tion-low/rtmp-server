@@ -15,7 +15,6 @@ struct AudioEnvironment {
         do {
             try AVAudioSession.sharedInstance().setCategory(config.category, mode: config.mode, options: config.options)
             try AVAudioSession.sharedInstance().setActive(true)
-            try AVAudioSession.sharedInstance().setPreferredSampleRate(48000.0)
         } catch let error {
             print(error)
         }
