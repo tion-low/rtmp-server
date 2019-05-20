@@ -1,0 +1,9 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'DemoAudioEngineOnRTMP' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  pod 'HaishinKit', :git => 'https://github.com/shogo4405/HaishinKit.swift.git', :commit => '77c0f37a9d3a753d8e6b76cf2c8840d287d217c4'
+end

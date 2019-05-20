@@ -12,6 +12,7 @@
 		192FD074229242FA00F768BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192FD072229242FA00F768BD /* Main.storyboard */; };
 		192FD076229242FD00F768BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192FD075229242FD00F768BD /* Assets.xcassets */; };
 		192FD079229242FD00F768BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192FD077229242FD00F768BD /* LaunchScreen.storyboard */; };
+		D1F076C1403C8E71BA6C56B9 /* Pods_DemoAudioEngineOnRTMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65765455AAFBFD823375C30 /* Pods_DemoAudioEngineOnRTMP.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,9 @@
 		192FD075229242FD00F768BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		192FD078229242FD00F768BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		192FD07A229242FD00F768BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1D5F48E4B631E127061BC625 /* Pods-DemoAudioEngineOnRTMP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAudioEngineOnRTMP.release.xcconfig"; path = "Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP.release.xcconfig"; sourceTree = "<group>"; };
+		E65765455AAFBFD823375C30 /* Pods_DemoAudioEngineOnRTMP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoAudioEngineOnRTMP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE784760B53BBCF7EED547E1 /* Pods-DemoAudioEngineOnRTMP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAudioEngineOnRTMP.debug.xcconfig"; path = "Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1F076C1403C8E71BA6C56B9 /* Pods_DemoAudioEngineOnRTMP.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +45,8 @@
 			children = (
 				192FD06D229242FA00F768BD /* DemoAudioEngineOnRTMP */,
 				192FD06C229242FA00F768BD /* Products */,
+				6F39655012374143716D187A /* Pods */,
+				2F8E619802EF2BD716A37240 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -64,6 +71,23 @@
 			path = DemoAudioEngineOnRTMP;
 			sourceTree = "<group>";
 		};
+		2F8E619802EF2BD716A37240 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E65765455AAFBFD823375C30 /* Pods_DemoAudioEngineOnRTMP.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6F39655012374143716D187A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE784760B53BBCF7EED547E1 /* Pods-DemoAudioEngineOnRTMP.debug.xcconfig */,
+				1D5F48E4B631E127061BC625 /* Pods-DemoAudioEngineOnRTMP.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +95,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 192FD07D229242FD00F768BD /* Build configuration list for PBXNativeTarget "DemoAudioEngineOnRTMP" */;
 			buildPhases = (
+				17AB939759204B4D565D97AD /* [CP] Check Pods Manifest.lock */,
 				192FD067229242FA00F768BD /* Sources */,
 				192FD068229242FA00F768BD /* Frameworks */,
 				192FD069229242FA00F768BD /* Resources */,
+				BA42DEB5AC932C779C7D6724 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,6 +155,55 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		17AB939759204B4D565D97AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DemoAudioEngineOnRTMP-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BA42DEB5AC932C779C7D6724 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/HaishinKit/HaishinKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Logboard/Logboard.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HaishinKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Logboard.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		192FD067229242FA00F768BD /* Sources */ = {
@@ -280,6 +355,7 @@
 		};
 		192FD07E229242FD00F768BD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE784760B53BBCF7EED547E1 /* Pods-DemoAudioEngineOnRTMP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -290,13 +366,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tionlow.DemoAudioEngineOnRTMP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		192FD07F229242FD00F768BD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D5F48E4B631E127061BC625 /* Pods-DemoAudioEngineOnRTMP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -307,7 +384,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.tionlow.DemoAudioEngineOnRTMP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

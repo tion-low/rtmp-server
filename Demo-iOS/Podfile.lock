@@ -1,0 +1,20 @@
+PODS:
+  - HaishinKit (0.10.6):
+    - Logboard (~> 2.0.0)
+  - Logboard (2.0.0)
+
+DEPENDENCIES:
+  - HaishinKit (= 0.10.6)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - HaishinKit
+    - Logboard
+
+SPEC CHECKSUMS:
+  HaishinKit: 83b894c7c711ced9948605e5795b95e4685da440
+  Logboard: 9e3dce26a4be2dbff7edf02d54b17ed5bd49217e
+
+PODFILE CHECKSUM: 066277046fcc69521d8524d313e15eb135fd5731
+
+COCOAPODS: 1.6.2
