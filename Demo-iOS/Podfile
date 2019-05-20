@@ -6,4 +6,6 @@ target 'DemoAudioEngineOnRTMP' do
   use_frameworks!
 
   pod 'HaishinKit', :git => 'git@github.com:shogo4405/HaishinKit.swift.git', :commit => '77c0f37a9d3a753d8e6b76cf2c8840d287d217c4'
+  pod 'RxSwift'
+  pod 'RxCocoa'
 end

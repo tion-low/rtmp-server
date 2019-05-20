@@ -13,6 +13,9 @@
 		192FD076229242FD00F768BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192FD075229242FD00F768BD /* Assets.xcassets */; };
 		192FD079229242FD00F768BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192FD077229242FD00F768BD /* LaunchScreen.storyboard */; };
 		192FD0812292490F00F768BD /* RTMPBroadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FD0802292490F00F768BD /* RTMPBroadcaster.swift */; };
+		192FD087229249CF00F768BD /* AudioEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FD083229249CF00F768BD /* AudioEnvironment.swift */; };
+		192FD089229249CF00F768BD /* BufferAudioRecorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FD085229249CF00F768BD /* BufferAudioRecorder.swift */; };
+		192FD08E2292617C00F768BD /* testimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 192FD08D2292617C00F768BD /* testimage.png */; };
 		D1F076C1403C8E71BA6C56B9 /* Pods_DemoAudioEngineOnRTMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65765455AAFBFD823375C30 /* Pods_DemoAudioEngineOnRTMP.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		192FD078229242FD00F768BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		192FD07A229242FD00F768BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		192FD0802292490F00F768BD /* RTMPBroadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTMPBroadcaster.swift; sourceTree = "<group>"; };
+		192FD083229249CF00F768BD /* AudioEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AudioEnvironment.swift; sourceTree = "<group>"; };
+		192FD085229249CF00F768BD /* BufferAudioRecorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BufferAudioRecorder.swift; sourceTree = "<group>"; };
+		192FD08D2292617C00F768BD /* testimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = testimage.png; sourceTree = "<group>"; };
 		1D5F48E4B631E127061BC625 /* Pods-DemoAudioEngineOnRTMP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAudioEngineOnRTMP.release.xcconfig"; path = "Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP.release.xcconfig"; sourceTree = "<group>"; };
 		E65765455AAFBFD823375C30 /* Pods_DemoAudioEngineOnRTMP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoAudioEngineOnRTMP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE784760B53BBCF7EED547E1 /* Pods-DemoAudioEngineOnRTMP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAudioEngineOnRTMP.debug.xcconfig"; path = "Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,15 +69,26 @@
 		192FD06D229242FA00F768BD /* DemoAudioEngineOnRTMP */ = {
 			isa = PBXGroup;
 			children = (
+				192FD082229249CF00F768BD /* Audio */,
 				192FD06E229242FA00F768BD /* AppDelegate.swift */,
 				192FD070229242FA00F768BD /* ViewController.swift */,
 				192FD0802292490F00F768BD /* RTMPBroadcaster.swift */,
 				192FD072229242FA00F768BD /* Main.storyboard */,
 				192FD075229242FD00F768BD /* Assets.xcassets */,
 				192FD077229242FD00F768BD /* LaunchScreen.storyboard */,
+				192FD08D2292617C00F768BD /* testimage.png */,
 				192FD07A229242FD00F768BD /* Info.plist */,
 			);
 			path = DemoAudioEngineOnRTMP;
+			sourceTree = "<group>";
+		};
+		192FD082229249CF00F768BD /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				192FD083229249CF00F768BD /* AudioEnvironment.swift */,
+				192FD085229249CF00F768BD /* BufferAudioRecorder.swift */,
+			);
+			path = Audio;
 			sourceTree = "<group>";
 		};
 		2F8E619802EF2BD716A37240 /* Frameworks */ = {
@@ -154,6 +171,7 @@
 				192FD079229242FD00F768BD /* LaunchScreen.storyboard in Resources */,
 				192FD076229242FD00F768BD /* Assets.xcassets in Resources */,
 				192FD074229242FA00F768BD /* Main.storyboard in Resources */,
+				192FD08E2292617C00F768BD /* testimage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,6 +211,8 @@
 				"${PODS_ROOT}/Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/HaishinKit/HaishinKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Logboard/Logboard.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -200,6 +220,8 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HaishinKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Logboard.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -213,8 +235,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				192FD087229249CF00F768BD /* AudioEnvironment.swift in Sources */,
 				192FD071229242FA00F768BD /* ViewController.swift in Sources */,
 				192FD06F229242FA00F768BD /* AppDelegate.swift in Sources */,
+				192FD089229249CF00F768BD /* BufferAudioRecorder.swift in Sources */,
 				192FD0812292490F00F768BD /* RTMPBroadcaster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,7 +387,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FRJG63497R;
 				INFOPLIST_FILE = DemoAudioEngineOnRTMP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -381,7 +407,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FRJG63497R;
 				INFOPLIST_FILE = DemoAudioEngineOnRTMP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -1,32 +1,22 @@
 //
 //  AudioEnvironment.swift
-//  vLive-viewer-ios
+//  DemoAudioEngineOnRTMP
 //
-//  Created by Takayuki Sei on 2019/04/10.
-//  Copyright © 2019 GREE, Inc. All rights reserved.
+//  Created by Takayuki Sei on 2019/05/20.
+//  Copyright © 2019 tionlow. All rights reserved.
 //
 
 import Foundation
 import AVFoundation
-import RxSwift
-import RxCocoa
 
 struct AudioEnvironment {
-    private let sessionState = BehaviorRelay<VLiveAudioState>(value: VLiveAudioState.default)
-    var sessoinStateDriver: Driver<VLiveAudioState> {
-        return sessionState.asDriver()
-    }
-    private let disposeBag = DisposeBag()
-
     func setState(state: VLiveAudioState) {
         let config = state.config()
         do {
             try AVAudioSession.sharedInstance().setCategory(config.category, mode: config.mode, options: config.options)
             try AVAudioSession.sharedInstance().setActive(true)
             try AVAudioSession.sharedInstance().setPreferredSampleRate(48000.0)
-            sessionState.accept(state)
         } catch let error {
-            // TODO: エラーハンドリング
             print(error)
         }
     }

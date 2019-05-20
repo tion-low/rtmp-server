@@ -2,13 +2,20 @@ PODS:
   - HaishinKit (0.10.6):
     - Logboard (~> 2.0.0)
   - Logboard (2.0.0)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
 
 DEPENDENCIES:
   - "HaishinKit (from `git@github.com:shogo4405/HaishinKit.swift.git`, commit `77c0f37a9d3a753d8e6b76cf2c8840d287d217c4`)"
+  - RxCocoa
+  - RxSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Logboard
+    - RxCocoa
+    - RxSwift
 
 EXTERNAL SOURCES:
   HaishinKit:
@@ -23,7 +30,9 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   HaishinKit: 83b894c7c711ced9948605e5795b95e4685da440
   Logboard: 9e3dce26a4be2dbff7edf02d54b17ed5bd49217e
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
 
-PODFILE CHECKSUM: af243110dc90bc163ea4247a23d3e2fbe74fd148
+PODFILE CHECKSUM: aafa177643b932dfc31ad23d93488a956453cebd
 
 COCOAPODS: 1.6.2

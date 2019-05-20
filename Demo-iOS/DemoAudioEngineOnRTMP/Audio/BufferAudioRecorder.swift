@@ -1,9 +1,9 @@
 //
 //  BufferAudioRecorder.swift
-//  vLive-viewer-ios
+//  DemoAudioEngineOnRTMP
 //
-//  Created by Takayuki Sei on 2019/04/16.
-//  Copyright © 2019 GREE, Inc. All rights reserved.
+//  Created by Takayuki Sei on 2019/05/20.
+//  Copyright © 2019 tionlow. All rights reserved.
 //
 
 import Foundation
@@ -17,23 +17,28 @@ class BufferAudioRecorder {
     private let outputFormat: AVAudioFormat!
     private let converter: AVAudioConverter!
 
-    private let buffers = PublishRelay<[Data]>()
-    var buffersSignal: Signal<[Data]> {
+    private let buffers = PublishRelay<(AVAudioPCMBuffer, AVAudioTime)>()
+    var buffersSignal: Signal<(AVAudioPCMBuffer, AVAudioTime)> {
         return buffers.asSignal()
+    }
+    
+    private let convertedBuffers = PublishRelay<[Data]>()
+    var convertedBuffersSignal: Signal<[Data]> {
+        return convertedBuffers.asSignal()
     }
 
     init(outputFormat: AVAudioFormat, samplingPerSeconds: Int, dataSplitNumber: Int) {
         self.outputFormat = outputFormat
-        VliveAppState.shared.audioEnvironment.setState(state: .voiceChat)
         inputFormat = audioEngine.inputNode.outputFormat(forBus: 0)
         converter = AVAudioConverter(from: inputFormat, to: outputFormat)
 
-        audioEngine.inputNode.installTap(onBus: 0, bufferSize: AVAudioFrameCount(Int(inputFormat.sampleRate) / samplingPerSeconds), format: inputFormat) { [weak self] (buffer, _) in
-            guard let s = self else { return  }
+        audioEngine.inputNode.installTap(onBus: 0, bufferSize: AVAudioFrameCount(Int(inputFormat.sampleRate) / samplingPerSeconds), format: inputFormat) { [weak self] (buffer, time) in
+            guard let self = self else { return }
+            self.buffers.accept((buffer, time))
 
             var error: NSError?
-            let pcmBuffer = AVAudioPCMBuffer(pcmFormat: s.outputFormat, frameCapacity: AVAudioFrameCount(s.inputFormat.sampleRate / 10))!
-            s.converter.convert(to: pcmBuffer, error: &error, withInputFrom: { (_, outStatus) -> AVAudioBuffer? in
+            let pcmBuffer = AVAudioPCMBuffer(pcmFormat: self.outputFormat, frameCapacity: AVAudioFrameCount(self.inputFormat.sampleRate / 10))!
+            self.converter.convert(to: pcmBuffer, error: &error, withInputFrom: { (_, outStatus) -> AVAudioBuffer? in
                 outStatus.pointee = AVAudioConverterInputStatus.haveData
                 return buffer
             })
@@ -52,7 +57,7 @@ class BufferAudioRecorder {
                 buffers.append(d)
             }
 
-            s.buffers.accept(buffers)
+            self.convertedBuffers.accept(buffers)
         }
 
         audioEngine.prepare()
