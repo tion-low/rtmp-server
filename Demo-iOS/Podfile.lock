@@ -4,17 +4,26 @@ PODS:
   - Logboard (2.0.0)
 
 DEPENDENCIES:
-  - HaishinKit (= 0.10.6)
+  - "HaishinKit (from `git@github.com:shogo4405/HaishinKit.swift.git`, commit `77c0f37a9d3a753d8e6b76cf2c8840d287d217c4`)"
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - HaishinKit
     - Logboard
+
+EXTERNAL SOURCES:
+  HaishinKit:
+    :commit: 77c0f37a9d3a753d8e6b76cf2c8840d287d217c4
+    :git: "git@github.com:shogo4405/HaishinKit.swift.git"
+
+CHECKOUT OPTIONS:
+  HaishinKit:
+    :commit: 77c0f37a9d3a753d8e6b76cf2c8840d287d217c4
+    :git: "git@github.com:shogo4405/HaishinKit.swift.git"
 
 SPEC CHECKSUMS:
   HaishinKit: 83b894c7c711ced9948605e5795b95e4685da440
   Logboard: 9e3dce26a4be2dbff7edf02d54b17ed5bd49217e
 
-PODFILE CHECKSUM: 066277046fcc69521d8524d313e15eb135fd5731
+PODFILE CHECKSUM: af243110dc90bc163ea4247a23d3e2fbe74fd148
 
 COCOAPODS: 1.6.2
