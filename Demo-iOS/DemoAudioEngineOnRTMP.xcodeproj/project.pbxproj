@@ -12,6 +12,7 @@
 		192FD074229242FA00F768BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192FD072229242FA00F768BD /* Main.storyboard */; };
 		192FD076229242FD00F768BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 192FD075229242FD00F768BD /* Assets.xcassets */; };
 		192FD079229242FD00F768BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192FD077229242FD00F768BD /* LaunchScreen.storyboard */; };
+		192FD0812292490F00F768BD /* RTMPBroadcaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FD0802292490F00F768BD /* RTMPBroadcaster.swift */; };
 		D1F076C1403C8E71BA6C56B9 /* Pods_DemoAudioEngineOnRTMP.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E65765455AAFBFD823375C30 /* Pods_DemoAudioEngineOnRTMP.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +24,7 @@
 		192FD075229242FD00F768BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		192FD078229242FD00F768BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		192FD07A229242FD00F768BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		192FD0802292490F00F768BD /* RTMPBroadcaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RTMPBroadcaster.swift; sourceTree = "<group>"; };
 		1D5F48E4B631E127061BC625 /* Pods-DemoAudioEngineOnRTMP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAudioEngineOnRTMP.release.xcconfig"; path = "Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP.release.xcconfig"; sourceTree = "<group>"; };
 		E65765455AAFBFD823375C30 /* Pods_DemoAudioEngineOnRTMP.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DemoAudioEngineOnRTMP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE784760B53BBCF7EED547E1 /* Pods-DemoAudioEngineOnRTMP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DemoAudioEngineOnRTMP.debug.xcconfig"; path = "Target Support Files/Pods-DemoAudioEngineOnRTMP/Pods-DemoAudioEngineOnRTMP.debug.xcconfig"; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				192FD06E229242FA00F768BD /* AppDelegate.swift */,
 				192FD070229242FA00F768BD /* ViewController.swift */,
+				192FD0802292490F00F768BD /* RTMPBroadcaster.swift */,
 				192FD072229242FA00F768BD /* Main.storyboard */,
 				192FD075229242FD00F768BD /* Assets.xcassets */,
 				192FD077229242FD00F768BD /* LaunchScreen.storyboard */,
@@ -212,6 +215,7 @@
 			files = (
 				192FD071229242FA00F768BD /* ViewController.swift in Sources */,
 				192FD06F229242FA00F768BD /* AppDelegate.swift in Sources */,
+				192FD0812292490F00F768BD /* RTMPBroadcaster.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
