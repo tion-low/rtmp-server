@@ -19,7 +19,7 @@ public class RTMPBroadcaster: RTMPConnection {
     
     private var connecting: Bool = false
     private let lockQueue = DispatchQueue(label: "com.haishinkit.HaishinKit.RTMPBroadcaster.lock")
-    
+
     override public init() {
         super.init()
         addEventListener(Event.RTMP_STATUS, selector: #selector(rtmpStatusEvent), observer: self)

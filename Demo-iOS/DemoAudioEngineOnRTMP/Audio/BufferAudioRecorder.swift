@@ -34,7 +34,7 @@ class BufferAudioRecorder {
 
         audioEngine.inputNode.installTap(onBus: 0, bufferSize: AVAudioFrameCount(Int(inputFormat.sampleRate) / samplingPerSeconds), format: inputFormat) { [weak self] (buffer, time) in
             guard let self = self else { return }
-            self.buffers.accept((buffer, time))
+//            self.buffers.accept((buffer, time))
 
             var error: NSError?
             let pcmBuffer = AVAudioPCMBuffer(pcmFormat: self.outputFormat, frameCapacity: AVAudioFrameCount(self.inputFormat.sampleRate / 10))!
@@ -42,6 +42,7 @@ class BufferAudioRecorder {
                 outStatus.pointee = AVAudioConverterInputStatus.haveData
                 return buffer
             })
+            self.buffers.accept((pcmBuffer, time))
 
             if let e = error {
                 print(e.localizedDescription)

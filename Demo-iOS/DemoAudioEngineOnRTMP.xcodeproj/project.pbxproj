@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		190976902292A75000BF2A14 /* SampleBufferCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909768F2292A75000BF2A14 /* SampleBufferCreator.swift */; };
 		192FD06F229242FA00F768BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FD06E229242FA00F768BD /* AppDelegate.swift */; };
 		192FD071229242FA00F768BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192FD070229242FA00F768BD /* ViewController.swift */; };
 		192FD074229242FA00F768BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 192FD072229242FA00F768BD /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1909768F2292A75000BF2A14 /* SampleBufferCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleBufferCreator.swift; sourceTree = "<group>"; };
 		192FD06B229242FA00F768BD /* DemoAudioEngineOnRTMP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoAudioEngineOnRTMP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		192FD06E229242FA00F768BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		192FD070229242FA00F768BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			children = (
 				192FD083229249CF00F768BD /* AudioEnvironment.swift */,
 				192FD085229249CF00F768BD /* BufferAudioRecorder.swift */,
+				1909768F2292A75000BF2A14 /* SampleBufferCreator.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -235,6 +238,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				190976902292A75000BF2A14 /* SampleBufferCreator.swift in Sources */,
 				192FD087229249CF00F768BD /* AudioEnvironment.swift in Sources */,
 				192FD071229242FA00F768BD /* ViewController.swift in Sources */,
 				192FD06F229242FA00F768BD /* AppDelegate.swift in Sources */,
