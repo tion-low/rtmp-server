@@ -21,13 +21,13 @@ class ViewController: UIViewController, RPScreenRecorderDelegate {
     var timer: Timer? = nil
     @IBOutlet weak var timeLabel: UILabel!
     
-    let rtmpURL = "rtmp://10.172.42.177:1935/live"
+    let rtmpURL = "rtmp://10.172.43.169:1935/live"
 //    let rtmpURL = "rtmp://localhost:1935/live"
     let rtmpKey = "testdayo"
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let outputFormat = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 48000, channels: 1, interleaved: false)
+        let outputFormat = AVAudioFormat(commonFormat: .pcmFormatFloat32, sampleRate: 44100, channels: 1, interleaved: false)
         recorder = BufferAudioRecorder(outputFormat: outputFormat!, samplingPerSeconds: 10, dataSplitNumber: 5)
         recorder?
             .buffersSignal
@@ -35,7 +35,7 @@ class ViewController: UIViewController, RPScreenRecorderDelegate {
                 print("🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌 START 🍌🍌🍌🍌🍌🍌🍌🍌🍌🍌")
                 guard let self = self else { return }
                 
-                let basicDescription = AudioStreamBasicDescription(mSampleRate: 48000,
+                let basicDescription = AudioStreamBasicDescription(mSampleRate: 44100,
                                                                    mFormatID: kAudioFormatLinearPCM,
                                                                    mFormatFlags: kLinearPCMFormatFlagIsFloat,
                                                                    mBytesPerPacket: 4,
@@ -44,9 +44,28 @@ class ViewController: UIViewController, RPScreenRecorderDelegate {
                                                                    mChannelsPerFrame: 1,
                                                                    mBitsPerChannel: 32,
                                                                    mReserved: 0)
-                guard let audioBuffer = AudioFactory(bd: basicDescription).createSampleBufferBy(pcm: buffer.0.audioBufferList.pointee.mBuffers.convertFloatArray()) else { return }
-                print("audio: \(audioBuffer)")
-                self.broadcaster.appendSampleBuffer(audioBuffer, withType: .audio)
+                let convertedFloat = buffer.0.audioBufferList.pointee.mBuffers.convertFloatArray()
+                var convertedFloatList: [[Float]] = []
+                for i in 0 ..< 5 {
+                    let range = convertedFloat.count / 5
+                    let list = convertedFloat[i * range ..< (i + 1) * range]
+                    convertedFloatList.append([Float](list))
+                }
+                
+                let timestamp = CMTime(value: CMTimeValue(Int(AVAudioTime.seconds(forHostTime: mach_absolute_time()) * 1000000000)),
+                                       timescale: 1000000000,
+                                       flags: .init(rawValue: 3),
+                                       epoch: 0)
+                for f in convertedFloatList {
+                    guard let audioBuffer = AudioFactory(bd: basicDescription).createSampleBufferBy(pcm: f, time: timestamp) else { return }
+//                    print("audio: \(audioBuffer)")
+//                    print(f)
+                    self.broadcaster.appendSampleBuffer(audioBuffer, withType: .audio)
+                }
+
+//                guard let audioBuffer = AudioFactory(bd: basicDescription).createSampleBufferBy(pcm: convertedFloat, time: timestamp) else { return }
+//                print("audio: \(audioBuffer)")
+//                self.broadcaster.appendSampleBuffer(audioBuffer, withType: .audio)
                 
 //                guard let audioBuffer2 = convertCMSampleBuffer(from: buffer.0, time: buffer.1) else { return }
 ////                self.broadcaster.appendSampleBuffer(audioBuffer2, withType: .audio)

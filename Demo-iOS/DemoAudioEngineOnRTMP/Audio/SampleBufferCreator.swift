@@ -33,7 +33,7 @@ public class AudioFactory {
         formatDescription = outDescription
     }
     
-    public func createSampleBufferBy<T>(pcm: [T]) -> CMSampleBuffer? {
+    public func createSampleBufferBy<T>(pcm: [T], time: CMTime) -> CMSampleBuffer? {
         var blockBuffer: CMBlockBuffer?
         _ = CMBlockBufferCreateWithMemoryBlock(allocator: kCFAllocatorDefault,
                                                memoryBlock: UnsafeMutableRawPointer(mutating: pcm),
@@ -45,10 +45,10 @@ public class AudioFactory {
                                                flags: 0,
                                                blockBufferOut: &blockBuffer)
         var sampleBuffer: CMSampleBuffer?
-        let timestamp = CMTime(value: CMTimeValue(Int(AVAudioTime.seconds(forHostTime: mach_absolute_time()))),
-                               timescale: 1000000000,
-                               flags: .init(rawValue: 3),
-                               epoch: 0)
+//        let timestamp = CMTime(value: CMTimeValue(Int(AVAudioTime.seconds(forHostTime: mach_absolute_time()) * 1000000000)),
+//                               timescale: 1000000000,
+//                               flags: .init(rawValue: 3),
+//                               epoch: 0)
         _ = CMAudioSampleBufferCreateWithPacketDescriptions(allocator: kCFAllocatorDefault,
                                                             dataBuffer: blockBuffer,
                                                             dataReady: true,
@@ -56,7 +56,7 @@ public class AudioFactory {
                                                             refcon: nil,
                                                             formatDescription: formatDescription,
                                                             sampleCount: pcm.count,
-                                                            presentationTimeStamp: timestamp,
+                                                            presentationTimeStamp: time,
                                                             packetDescriptions: nil,
                                                             sampleBufferOut: &sampleBuffer)
         return sampleBuffer
